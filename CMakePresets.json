@@ -1,0 +1,38 @@
+{
+	"version": 3,
+	"configurePresets": [
+		{
+			"name": "default",
+			"hidden": true,
+			"generator": "Ninja",
+			"cacheVariables": {
+				"BUILD_TESTING": "OFF",
+				"BUILD_SHARED_LIBS": "OFF"
+			}
+		},
+		{
+			"name": "x86-Debug",
+			"displayName": "x86 Debug",
+			"inherits": "default",
+			"architecture": {
+				"value": "Win32",
+				"strategy": "external"
+			},
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+		{
+			"name": "x86-Release",
+			"displayName": "x86 Release",
+			"inherits": "default",
+			"architecture": {
+				"value": "Win32",
+				"strategy": "external"
+			},
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "RelWithDebInfo"
+			}
+		}
+	]
+}

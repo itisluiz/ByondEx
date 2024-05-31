@@ -3,7 +3,7 @@
 	url = https://github.com/TsudaKageyu/minhook.git
 [submodule "lib/acquire"]
 	path = lib/acquire
-	url = git@github.com:itisluiz/Acquire.git
+	url = https://github.com/itisluiz/Acquire.git
 [submodule "lib/csys"]
 	path = lib/csys
 	url = https://github.com/rmxbalanque/csys.git

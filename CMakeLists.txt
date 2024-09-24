@@ -29,7 +29,11 @@ target_link_libraries(${PROJECT_BASE} INTERFACE minhook acquire csys "directx/d3
 ## Source globbing, exclude main file
 file(GLOB_RECURSE PROJECT_SOURCES "src/*.cpp" "src/*.cxx" "src/*.cc")
 list(FILTER PROJECT_SOURCES EXCLUDE REGEX "src/main.cc$")
-target_sources(${PROJECT_BASE} INTERFACE ${PROJECT_SOURCES})
+
+# Glob all header files
+file(GLOB_RECURSE PROJECT_HEADERS "include/*.h" "include/*.hpp" "include/*.hh")
+
+target_sources(${PROJECT_BASE} INTERFACE ${PROJECT_SOURCES} ${PROJECT_HEADERS})
 
 ## Project output, end-product
 set(PROJECT_TARGET ${PROJECT_NAME})

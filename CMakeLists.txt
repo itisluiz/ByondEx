@@ -5,10 +5,18 @@ project("byondex" VERSION 0.1 LANGUAGES CXX)
 set(PROJECT_BASE ${PROJECT_NAME}-base)
 add_library(${PROJECT_BASE} INTERFACE)
 target_compile_features(${PROJECT_BASE} INTERFACE cxx_std_17)
-target_include_directories(${PROJECT_BASE} INTERFACE "include" "include/gui/imgui" "include/gui/imgui/backend" "include/render/dxsdk")
+target_include_directories(${PROJECT_BASE} INTERFACE 
+	"include" 
+	"include/gui/imgui" 
+	"include/gui/imgui/backend" 
+	"include/render/dxsdk"
+)
 
 ## QoL definitions
-target_compile_definitions(${PROJECT_BASE} INTERFACE PROJECT_VERSION="${PROJECT_VERSION}" BUILD_SHARED_LIBS=$<BOOL:${BUILD_SHARED_LIBS}>)
+target_compile_definitions(${PROJECT_BASE} INTERFACE 
+	PROJECT_VERSION="${PROJECT_VERSION}" 
+	BUILD_SHARED_LIBS=$<BOOL:${BUILD_SHARED_LIBS}>
+)
 
 ## Project's dependencies adding and linking
 if(NOT TARGET minhook)
@@ -24,14 +32,29 @@ if(NOT TARGET csys)
 endif()
 
 target_link_directories(${PROJECT_BASE} INTERFACE "lib")
-target_link_libraries(${PROJECT_BASE} INTERFACE minhook acquire csys "directx/d3d9" "directx/d3dx9" "byond/byondcore")
+target_link_libraries(${PROJECT_BASE} INTERFACE 
+	minhook 
+	acquire 
+	csys 
+	"directx/d3d9" 
+	"directx/d3dx9" 
+	"byond/byondcore"
+)
 
 ## Source globbing, exclude main file
-file(GLOB_RECURSE PROJECT_SOURCES "src/*.cpp" "src/*.cxx" "src/*.cc")
+file(GLOB_RECURSE PROJECT_SOURCES 
+	"src/*.cpp" 
+	"src/*.cxx" 
+	"src/*.cc"
+)
 list(FILTER PROJECT_SOURCES EXCLUDE REGEX "src/main.cc$")
 
 # Glob all header files
-file(GLOB_RECURSE PROJECT_HEADERS "include/*.h" "include/*.hpp" "include/*.hh")
+file(GLOB_RECURSE PROJECT_HEADERS 
+	"include/*.h" 
+	"include/*.hpp" 
+	"include/*.hh"
+)
 
 target_sources(${PROJECT_BASE} INTERFACE ${PROJECT_SOURCES} ${PROJECT_HEADERS})
 

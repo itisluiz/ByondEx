@@ -11,7 +11,5 @@ namespace gui::hotkeys
 
 		if (ImGui::IsKeyPressed(ImGuiKey_Insert, false))
 			guiwindow::byondex::open = !guiwindow::byondex::open;
-
 	}
-
 }

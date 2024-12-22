@@ -126,7 +126,5 @@ namespace render::dxboiler
 			pSwapChain->Release();
 			pSwapChain = nullptr;
 		}
-
 	}
-
 }

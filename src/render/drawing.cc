@@ -21,7 +21,5 @@ namespace render::drawing
 	void deinit()
 	{
 		gui::imguiboiler::deinit();
-
 	}
-
 }

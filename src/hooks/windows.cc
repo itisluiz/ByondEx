@@ -105,8 +105,6 @@ namespace hooks::windows
 
 		if (wndproc::originalProc)
 			SetWindowLongPtrW(state::hRenderWindow, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>(wndproc::originalProc));
-
 	}
-
 }
 

@@ -15,7 +15,5 @@ namespace gui::guiwindow
 	{
 		extern bool open;
 		void draw();
-
 	}
-
 }

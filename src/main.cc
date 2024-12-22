@@ -1,5 +1,6 @@
 #include <main.hh>
 #include <state.hh>
+#include <process/identity.hh>
 #include <iostream>
 
 static DWORD WINAPI entryThread(LPVOID lpParameter)
@@ -25,6 +26,9 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
     {
         case DLL_PROCESS_ATTACH:
         {
+			if (process::identity::getByondIdentity() != process::identity::ByondIdentity::kDreamSeeker)
+				return FALSE;
+
             DisableThreadLibraryCalls(hinstDLL);
             state::hModule = hinstDLL;
             HANDLE hEntryThread{ CreateThread(NULL, 0, entryThread, NULL, 0, NULL) };

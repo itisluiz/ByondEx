@@ -32,7 +32,6 @@ namespace
 
 		return vTableCopy;
 	}
-
 }
 
 namespace hooks::directx
@@ -104,5 +103,4 @@ namespace hooks::directx
 
 		render::dxboiler::deinit();
 	}
-
 }

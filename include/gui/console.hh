@@ -5,5 +5,4 @@ namespace gui::console
 {
 	void draw();
 	csys::System* system();
-
 }

@@ -1,7 +1,6 @@
 #include <hooks/dungclient.hh>
 #include <MinHook.h>
 #include <byond/sight.hh>
-
 #include <gui/console.hh>
 
 namespace hooks::dungclient
@@ -10,7 +9,6 @@ namespace hooks::dungclient
 	{
 		int __fastcall hook(DungClient* thisptr, void* edx, MouseParams const& mouseParams)
 		{
-
 			return tramp(thisptr, edx, mouseParams);
 		}
 
@@ -31,7 +29,5 @@ namespace hooks::dungclient
 	void deinit()
 	{
 		MH_RemoveHook(genclickcommand::address);
-
 	}
-
 }

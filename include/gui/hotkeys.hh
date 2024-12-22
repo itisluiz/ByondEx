@@ -3,5 +3,4 @@
 namespace gui::hotkeys
 {
 	void handleHotkeys();
-
 }

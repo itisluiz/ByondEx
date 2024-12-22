@@ -1,6 +1,7 @@
 #include <hooks/dmicon.hh>
 #include <MinHook.h>
 #include <gui/console.hh>
+
 namespace hooks::dmicon
 {
 	namespace extracticon
@@ -27,7 +28,5 @@ namespace hooks::dmicon
 	void deinit()
 	{
 		MH_DisableHook(extracticon::address);
-
 	}
-
 }

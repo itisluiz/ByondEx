@@ -12,5 +12,4 @@ namespace hooks::dungclient
 
 	bool setup();
 	void deinit();
-
 }

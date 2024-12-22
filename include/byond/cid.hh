@@ -12,5 +12,4 @@ struct Cid
 
 	Type type;
 	unsigned int id;
-
 };

@@ -17,5 +17,4 @@ namespace hooks::windows
 
 	bool setup();
 	void deinit();
-
 }

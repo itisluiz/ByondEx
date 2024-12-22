@@ -26,5 +26,4 @@ namespace hooks::directx
 
 	bool setup();
 	void deinit();
-
 }

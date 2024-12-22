@@ -55,9 +55,6 @@ namespace gui::guiwindow
 		{
 			if (byondex::open && open)
 				gui::console::draw();
-
 		}
-
 	}
-
 }

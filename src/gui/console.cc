@@ -20,5 +20,4 @@ namespace gui::console
 
 		return &(pConsole->System());
 	}
-
 }

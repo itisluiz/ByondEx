@@ -12,5 +12,4 @@ namespace hooks::dmicon
 
 	bool setup();
 	void deinit();
-
 }

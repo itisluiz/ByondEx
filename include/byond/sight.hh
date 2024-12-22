@@ -13,5 +13,4 @@ public:
 
 public:
 	static Sight* getSight();
-
 };

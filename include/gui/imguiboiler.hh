@@ -7,5 +7,4 @@ namespace gui::imguiboiler
 	void beginFrame(IDirect3DDevice9* pDevice);
 	void endFrame(IDirect3DDevice9* pDevice);
 	void deinit();
-
 }

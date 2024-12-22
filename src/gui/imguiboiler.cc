@@ -86,5 +86,4 @@ namespace gui::imguiboiler
 		else
 			ImGui_ImplDX9_InvalidateDeviceObjects();
 	}
-
 }

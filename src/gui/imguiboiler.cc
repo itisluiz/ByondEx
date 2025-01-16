@@ -1,9 +1,8 @@
 #include <gui/imguiboiler.hh>
+#include <hooks/windows.hh>
+#include <state.hh>
 #include <imgui_impl_win32.h>
 #include <imgui_impl_dx9.h>
-#include <state.hh>
-
-#include <hooks/windows.hh>
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -66,12 +65,12 @@ namespace gui::imguiboiler
 		ImGui_ImplDX9_RenderDrawData(ImGui::GetDrawData());
 	}
 
-	void deinit()
+	void deinit(bool shutdown)
 	{
 		if (!ImGui::GetCurrentContext())
 			return;
 
-		if (state::unloading)
+		if (state::unloading || shutdown)
 		{	
 			ImGuiIO io{ ImGui::GetIO() };
 
@@ -82,8 +81,12 @@ namespace gui::imguiboiler
 				ImGui_ImplWin32_Shutdown();
 
 			ImGui::DestroyContext();
+			initialized = false;
 		}
 		else
+		{
 			ImGui_ImplDX9_InvalidateDeviceObjects();
+			invalidated = true;
+		}
 	}
 }

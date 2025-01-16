@@ -113,8 +113,6 @@ namespace render::dxboiler
 
 	void deinit()
 	{
-		render::drawing::deinit();
-
 		if (pBackBuffer)
 		{
 			pBackBuffer->Release();

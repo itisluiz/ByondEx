@@ -24,7 +24,7 @@ if(NOT TARGET csys)
 endif()
 
 target_link_directories(${PROJECT_BASE} INTERFACE "lib")
-target_link_libraries(${PROJECT_BASE} INTERFACE minhook acquire csys "directx/d3d9" "directx/d3dx9" "byond/byondcore")
+target_link_libraries(${PROJECT_BASE} INTERFACE minhook acquire csys "dbghelp.lib" "directx/d3d9" "directx/d3dx9" "byond/byondcore")
 
 ## Source globbing, exclude main file
 file(GLOB_RECURSE PROJECT_SOURCES "src/*.cpp" "src/*.cxx" "src/*.cc")

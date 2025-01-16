@@ -1,7 +1,7 @@
 #include <hooks/dungclient.hh>
-#include <MinHook.h>
 #include <byond/sight.hh>
 #include <gui/console.hh>
+#include <MinHook.h>
 
 namespace hooks::dungclient
 {

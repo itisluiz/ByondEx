@@ -1,9 +1,8 @@
 #include <gui/guiwindow.hh>
 #include <gui/console.hh>
+#include <byond/sight.hh>
 #include <main.hh>
 #include <imgui.h>
-
-#include <byond/sight.hh>
 
 namespace gui::guiwindow
 {
@@ -22,6 +21,9 @@ namespace gui::guiwindow
 					if (ImGui::BeginMenu("Menu"))
 					{
 						ImGui::MenuItem("Console", NULL, &guiwindow::console::open);
+
+						if (ImGui::MenuItem("Deference nullptr"))
+							*(int*)nullptr = 0;
 
 						if (ImGui::MenuItem("Unload"))
 							unload();

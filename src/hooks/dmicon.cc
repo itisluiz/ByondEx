@@ -1,6 +1,6 @@
 #include <hooks/dmicon.hh>
-#include <MinHook.h>
 #include <gui/console.hh>
+#include <MinHook.h>
 
 namespace hooks::dmicon
 {

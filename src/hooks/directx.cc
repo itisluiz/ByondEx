@@ -1,5 +1,6 @@
 #include <hooks/directx.hh>
 #include <render/dxboiler.hh>
+#include <gui/imguiboiler.hh>
 #include <minhook.h>
 #include <memory>
 
@@ -40,7 +41,6 @@ namespace hooks::directx
 	{
 		HRESULT __stdcall hook(IDirect3DDevice9* pDevice)
 		{
-
 			return tramp(pDevice);
 		}
 
@@ -52,8 +52,13 @@ namespace hooks::directx
 	{
 		HRESULT __stdcall hook(IDirect3DDevice9* pDevice, D3DPRESENT_PARAMETERS* pPresentationParameters)
 		{
-			render::dxboiler::deinit();
+			static IDirect3DDevice9* pPreviousDevice{ nullptr };
+			bool hasDeviceChanged{ pDevice && pDevice != pPreviousDevice };
 
+			render::dxboiler::deinit();
+			gui::imguiboiler::deinit(hasDeviceChanged);
+
+			pPreviousDevice = pDevice;
 			return tramp(pDevice, pPresentationParameters);
 		}
 

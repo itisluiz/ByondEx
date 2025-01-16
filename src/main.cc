@@ -1,15 +1,11 @@
 #include <main.hh>
+#include <crash.hh>
 #include <state.hh>
 #include <process/identity.hh>
 #include <iostream>
 
 static DWORD WINAPI entryThread(LPVOID lpParameter)
 {
-    AllocConsole();
-    freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
-
-    std::cout << "Hello from PID " << GetCurrentProcessId() << '\n';
-
     state::setup();
     return 0;
 }
@@ -30,6 +26,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 				return FALSE;
 
             DisableThreadLibraryCalls(hinstDLL);
+            crash::setupHandler();
             state::hModule = hinstDLL;
             HANDLE hEntryThread{ CreateThread(NULL, 0, entryThread, NULL, 0, NULL) };
 
